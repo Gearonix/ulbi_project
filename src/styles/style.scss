@@ -1,0 +1,10 @@
+@use "variables/global" as *;
+@import "themes/normal";
+@import "themes/dark";
+
+body{
+  color: $app_color;
+}
+.App{
+
+}

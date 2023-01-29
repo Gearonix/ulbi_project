@@ -1,0 +1,5 @@
+@use '../variables/global' as *;
+
+.app.dark{
+  color: $dark_theme;
+}
