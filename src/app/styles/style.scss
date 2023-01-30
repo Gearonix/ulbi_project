@@ -1,0 +1,7 @@
+@use '../../public/variables/global' as *;
+@import 'src/app/styles/themes/dark';
+@import 'src/app/styles/themes/light';
+
+.App {
+ background: var(--bg-color);
+}

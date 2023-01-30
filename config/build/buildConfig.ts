@@ -14,11 +14,11 @@ export const buildWebpackConfig = (options: BuildOptions): Configuration => {
         },
         mode: mode,
         plugins: buildPlugins(options),
-        resolve: buildResolvers(),
+        resolve: buildResolvers(options),
         module: {
             rules: buildLoaders(options)
         },
         devtool: isDev ? 'inline-source-map' : undefined,
-        devServer: isDev ?  buildDevServer(options) : undefined
+        devServer: isDev ? buildDevServer(options) : undefined
     }
 }
