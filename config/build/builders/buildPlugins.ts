@@ -1,5 +1,5 @@
 import HTMLWebpackPlugin from 'html-webpack-plugin'
-import {ProgressPlugin, WebpackPluginInstance} from 'webpack'
+import {DefinePlugin, ProgressPlugin, WebpackPluginInstance} from 'webpack'
 import {BuildOptions} from "../types";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import {CleanWebpackPlugin} from 'clean-webpack-plugin'
@@ -15,6 +15,9 @@ export const buildPlugins = (options: BuildOptions): WebpackPluginInstance[] => 
         new CleanWebpackPlugin({
             protectWebpackAssets: false,
             cleanAfterEveryBuildPatterns: ['*.LICENSE.txt'],
+        }),
+        new DefinePlugin({
+            __isDev__: JSON.stringify(options.isDev)
         })
-        ]
+    ]
 }

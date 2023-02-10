@@ -4,13 +4,13 @@ import {BuildOptions} from "../types";
 
 export const buildLoaders = (options: BuildOptions): RuleSetRule[] => {
 
-    const typescriptLoader = {
-        test: /\.tsx?$/,
-        use : 'ts-loader',
-        exclude: /node_modules/,
-    }
-
-    const scssLoader = {
+    const Loaders = {
+        typescript: {
+            test: /\.tsx?$/,
+            use: 'ts-loader',
+            exclude: /node_modules/,
+        },
+        scss: {
             test: /\.s[ac]ss$/i,
             use: [
                 options.isDev ? 'style-loader' : MiniCssLoader,
@@ -19,16 +19,26 @@ export const buildLoaders = (options: BuildOptions): RuleSetRule[] => {
                     options: {
                         modules: {
                             auto: (filename: string) => !!filename.includes('.module.'),
-                            localIdentName: options.isDev  ? '[name]__[local]' : '[hash:base64:8]'
+                            localIdentName: options.isDev ? '[name]__[local]' : '[hash:base64:8]'
                         }
                     }
                 },
                 "sass-loader",
             ],
+        },
+        svg: {
+            test: /\.svg$/,
+            use: ['@svgr/webpack'],
+        },
+        images: {
+            test: /\.(png|jpe?g|gif|woff|woff2)$/i,
+            use: [
+                {
+                    loader: 'file-loader',
+                },
+            ],
+        },
     }
 
-    return [
-        typescriptLoader,
-        scssLoader
-    ]
+    return Object.values(Loaders)
 }

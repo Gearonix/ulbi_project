@@ -1,2 +1,2 @@
 export {default as ThemeContext} from './contexts/ThemeContext'
-export {routes, RoutePaths} from './routes/routes'
+export {routes, RoutePaths, LanguageChunks} from './routes/routes'

@@ -25,5 +25,10 @@ const reactRouterConfig: Record<AppRoutes, RouteProps> = {
     }
 }
 
+export const LanguageChunks = {
+    [AppRoutes.MAIN]: 'main',
+    [AppRoutes.ABOUT]: 'about'
+} as const
+
 export const routes = Object.values(reactRouterConfig)
     .map(({path, element}) => <Route path={path} element={element} key={path}/>)
