@@ -1,7 +1,7 @@
 import {ReactNode} from 'react';
 import s from './AppLink.module.scss';
-import {RCC} from "shared/types";
-import {Link, LinkProps} from "react-router-dom";
+import {RCC} from 'shared/types';
+import {Link, LinkProps} from 'react-router-dom';
 import cn from 'classnames';
 
 enum LinkColors {
@@ -22,8 +22,8 @@ interface AppLinkProps extends LinkProps {
 const AppLink: RCC<AppLinkProps> = ({to, className, children, theme = 'primary'}) => {
     return <Link to={to} className={cn(className, s[theme], s.AppLink)}>
         {children}
-    </Link>
-}
+    </Link>;
+};
 
 
-export default AppLink
+export default AppLink;

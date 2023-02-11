@@ -1,8 +1,8 @@
 import {FC} from 'react';
-import {useTheme} from "shared/lib/hooks/useTheme";
+import {useTheme} from 'shared/lib/hooks/useTheme';
 import s from './style.module.scss';
-import {Image, Logo} from "shared/assets";
-import Button from "shared/ui/Button/Button";
+import {Image, Logo} from 'shared/assets';
+import Button from 'shared/ui/Button/Button';
 
 interface ThemeSwitcherProps {
 
@@ -17,8 +17,8 @@ const ThemeSwitcher: FC<ThemeSwitcherProps> = () => {
                 theme={'simple'}>switch theme</Button>
         <Logo/>
         <img src={Image} style={{width: 40, height: 40}}/>
-    </div>
-}
+    </div>;
+};
 
 
-export default ThemeSwitcher
+export default ThemeSwitcher;

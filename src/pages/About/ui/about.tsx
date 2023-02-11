@@ -1,11 +1,11 @@
 import {FC} from 'react';
-import {useLanguage} from "shared/lib/hooks";
+import {useLanguage} from 'shared/lib/hooks';
 
-const about: FC = () => {
-    const {t} = useLanguage('about')
+const About: FC = () => {
+    const {t} = useLanguage('about');
     return <div>
         {t('aboutTranslation')}
-    </div>
-}
+    </div>;
+};
 
-export default about
+export default About;

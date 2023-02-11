@@ -1,11 +1,11 @@
 import {FC} from 'react';
-import {ThemeSwitcher} from "features/ThemeSwitcher";
+import {ThemeSwitcher} from 'features/ThemeSwitcher';
 
 const main: FC = () => {
     return <div>
         main
         <ThemeSwitcher/>
-    </div>
-}
+    </div>;
+};
 
-export default main
+export default main;

@@ -1,6 +1,6 @@
-import {Route, RouteProps} from "react-router-dom";
-import {MainPage} from "pages/Main";
-import {AboutPage} from "pages/About";
+import {Route, RouteProps} from 'react-router-dom';
+import {MainPage} from 'pages/Main';
+import {AboutPage} from 'pages/About';
 
 enum AppRoutes {
     MAIN = 'MAIN',
@@ -10,25 +10,25 @@ enum AppRoutes {
 
 export const RoutePaths: Record<AppRoutes, string> = {
     [AppRoutes.MAIN]: '/',
-    [AppRoutes.ABOUT]: '/about'
-}
+    [AppRoutes.ABOUT]: '/about',
+};
 
 
 const reactRouterConfig: Record<AppRoutes, RouteProps> = {
     [AppRoutes.MAIN]: {
         path: RoutePaths.MAIN,
-        element: <MainPage/>
+        element: <MainPage/>,
     },
     [AppRoutes.ABOUT]: {
         path: RoutePaths.ABOUT,
-        element: <AboutPage/>
-    }
-}
+        element: <AboutPage/>,
+    },
+};
 
 export const LanguageChunks = {
-    [AppRoutes.MAIN]: 'main',
-    [AppRoutes.ABOUT]: 'about'
-} as const
+    [AppRoutes.MAIN]: 'translation',
+    [AppRoutes.ABOUT]: 'about',
+} as const;
 
 export const routes = Object.values(reactRouterConfig)
-    .map(({path, element}) => <Route path={path} element={element} key={path}/>)
+    .map(({path, element}) => <Route path={path} element={element} key={path}/>);

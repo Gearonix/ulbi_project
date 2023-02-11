@@ -1,10 +1,10 @@
-import {createRoot} from 'react-dom/client'
-import {StrictMode} from "react";
-import {BrowserRouter} from "react-router-dom";
+import {createRoot} from 'react-dom/client';
+import {StrictMode} from 'react';
+import {BrowserRouter} from 'react-router-dom';
 import App from './app/App';
 import ThemeProvider from './app/providers/ThemeProvider/ui/ThemeProvider';
 
-const root = createRoot(document.getElementById('root'))
+const root = createRoot(document.getElementById('root'));
 
 root.render(
     <StrictMode>
@@ -13,5 +13,5 @@ root.render(
                 <App/>
             </ThemeProvider>
         </BrowserRouter>
-    </StrictMode>
-)
+    </StrictMode>,
+);
