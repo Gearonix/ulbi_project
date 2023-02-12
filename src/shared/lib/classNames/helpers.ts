@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const helpers = (callback: () => string, ms: number = 1000) => {
+export const helpers = (callback: () => string, ms = 1000) => {
     return new Promise((resolve, reject) => {
         setTimeout(() => resolve(callback()), ms);
     });

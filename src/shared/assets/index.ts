@@ -1,9 +1,6 @@
-import Image from './gigachad.png';
-import Logo from './logosmall.png';
-import LogoBrand from './logobrand.png';
+import avatar from './avatar.jpg';
+
 
 export {
-  Image,
-  Logo,
-  LogoBrand
+    avatar,
 };

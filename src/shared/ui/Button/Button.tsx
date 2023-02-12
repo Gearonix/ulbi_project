@@ -1,4 +1,4 @@
-import s from './style.module.scss';
+import * as s from './style.module.scss';
 import {RCC} from 'shared/types';
 import {ButtonProps} from './types';
 import cn from 'classnames';

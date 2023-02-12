@@ -13,7 +13,7 @@ enum AppRoutes {
 export const RoutePaths: Record<AppRoutes, string> = {
     [AppRoutes.MAIN]: '/',
     [AppRoutes.ABOUT]: '/about',
-    [AppRoutes.NOT_FOUND]: '*'
+    [AppRoutes.NOT_FOUND]: '*',
 };
 
 
@@ -28,14 +28,14 @@ const reactRouterConfig: Record<AppRoutes, RouteProps> = {
     },
     [AppRoutes.NOT_FOUND]: {
         path: RoutePaths.NOT_FOUND,
-        element: <NotFoundPage/>
-    }
+        element: <NotFoundPage/>,
+    },
 };
 
 export const languageChunks: Record<AppRoutes, string> = {
     [AppRoutes.MAIN]: 'translation',
     [AppRoutes.ABOUT]: 'about',
-    [AppRoutes.NOT_FOUND]: 'not_found'
+    [AppRoutes.NOT_FOUND]: 'not_found',
 } as const;
 
 export type LanguageChunks = typeof languageChunks

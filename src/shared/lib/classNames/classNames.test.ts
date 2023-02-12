@@ -6,12 +6,12 @@ import {beforeEach} from 'node:test';
 jest.mock('axios');
 describe('classNames: ', () => {
   let response = {
-    data: [10, 20, 30]
+      data: [10, 20, 30],
   };
 
   beforeEach(() => {
     response = {
-      data: [10, 20, 30]
+        data: [10, 20, 30],
     };
   });
 
@@ -22,10 +22,10 @@ describe('classNames: ', () => {
     const expected = 'someClass qwe';
     expect(classNames('someClass', {}, ['qwe'])).toBe(expected);
   });
-  test('helpers test', async () => {
-    const result = await helpers(() => 'done!', 1000);
-    expect(result).toBe('done!');
-  });
+    test('helpers tests', async () => {
+        const result = await helpers(() => 'done!', 1000);
+        expect(result).toBe('done!');
+    });
 
   test('axios mock', async () => {
     const moxios = jest.mocked(axios);

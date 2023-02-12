@@ -11,8 +11,8 @@ interface State {
 
 class ErrorBoundary extends Component<ErrorBoundaryProps, State> {
   public state: State = {
-    hasError: false,
-    errorInfo: null
+      hasError: false,
+      errorInfo: null,
   };
 
   public static getDerivedStateFromError(error: Error): State {
