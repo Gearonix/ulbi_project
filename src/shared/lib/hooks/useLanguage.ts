@@ -1,9 +1,8 @@
 import {useTranslation} from 'react-i18next';
 import {LanguageChunks} from 'shared/config';
+import {ValueOf} from 'shared/types';
 
-type ValueOf<T> = T[keyof T]
-
-export const useLanguage = (chunk?: ValueOf<typeof LanguageChunks>) => {
+export const useLanguage = (chunk?: ValueOf<LanguageChunks>) => {
     const {t, i18n} = useTranslation(chunk);
 
     const toggleLang = () => {

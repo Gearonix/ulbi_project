@@ -1,9 +1,9 @@
 import Image from './gigachad.png';
-import Logo from './logo.svg';
-import MockItem from './mock_item.svg';
+import Logo from './logosmall.png';
+import LogoBrand from './logobrand.png';
 
 export {
-    Image,
-    Logo,
-    MockItem,
+  Image,
+  Logo,
+  LogoBrand
 };
