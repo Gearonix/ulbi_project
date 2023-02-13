@@ -1,7 +1,7 @@
-import {Route, RouteProps} from 'react-router-dom';
-import {MainPage} from 'pages/Main';
-import {AboutPage} from 'pages/About';
-import {NotFoundPage} from 'pages/NotFound';
+import {Route, RouteProps} from 'react-router-dom'
+import {MainPage} from 'pages/Main'
+import {AboutPage} from 'pages/About'
+import {NotFoundPage} from 'pages/NotFound'
 
 enum AppRoutes {
     MAIN = 'MAIN',
@@ -14,7 +14,7 @@ export const RoutePaths: Record<AppRoutes, string> = {
     [AppRoutes.MAIN]: '/',
     [AppRoutes.ABOUT]: '/about',
     [AppRoutes.NOT_FOUND]: '*',
-};
+}
 
 
 const reactRouterConfig: Record<AppRoutes, RouteProps> = {
@@ -30,15 +30,15 @@ const reactRouterConfig: Record<AppRoutes, RouteProps> = {
         path: RoutePaths.NOT_FOUND,
         element: <NotFoundPage/>,
     },
-};
+}
 
 export const languageChunks: Record<AppRoutes, string> = {
     [AppRoutes.MAIN]: 'translation',
     [AppRoutes.ABOUT]: 'about',
     [AppRoutes.NOT_FOUND]: 'not_found',
-} as const;
+} as const
 
 export type LanguageChunks = typeof languageChunks
 
 export const routes = Object.values(reactRouterConfig)
-    .map(({path, element}) => <Route path={path} element={element} key={path}/>);
+    .map(({path, element}) => <Route path={path} element={element} key={path}/>)

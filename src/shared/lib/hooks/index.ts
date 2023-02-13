@@ -1,2 +1,2 @@
-export {useLanguage} from './useLanguage';
-export {useTheme} from './useTheme';
+export {useLanguage} from './useLanguage'
+export {useTheme} from './useTheme'

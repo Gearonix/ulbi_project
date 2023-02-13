@@ -5,6 +5,10 @@
     "module": "esnext",
     "target": "es5",
     "jsx": "react-jsx",
+    "typeRoots": [
+      "./src/@types",
+      "./node_modules/@types"
+    ],
     "allowJs": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
@@ -13,7 +17,12 @@
       "*": [
         "./src/*"
       ]
-    }
+    },
+    "plugins": [
+      {
+        "name": "typescript-plugin-css-modules"
+      }
+    ]
   },
   "ts-node": {
     "compilerOptions": {

@@ -1,3 +1,3 @@
-const JestEmptyImageComponent = () => '';
+const JestEmptyImageComponent = () => ''
 
-export default JestEmptyImageComponent;
+export default JestEmptyImageComponent

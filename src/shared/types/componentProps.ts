@@ -1,4 +1,4 @@
-import {FC, ReactNode} from 'react';
+import {FC, ReactNode} from 'react'
 
 export type ReactClassNameComponent<T = {}> = FC<{ className?: string } & T>
 

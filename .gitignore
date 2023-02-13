@@ -33,5 +33,9 @@ yarn-error.log*
 next-env.d.ts
 
 pnpm-lock.yaml
+yarn-error.log
+yarn.lock
 /extractedTranslations
 extractedTranslations
+yarn.lock*
+

@@ -1,14 +1,15 @@
-import * as s from './style.module.scss';
-import {RCC} from 'shared/types';
-import {ButtonProps} from './types';
-import cn from 'classnames';
+import s from './style.module.scss'
+import {RCC} from 'shared/types'
+import {ButtonProps} from './types'
+import cn from 'classnames'
 
 
 const Button: RCC<ButtonProps> = ({className, children, theme = 'colored', ...buttonProps}) => {
+    // @ts-ignore
     return <button className={cn(s[theme], className)} {...buttonProps}>
         {children}
-    </button>;
-};
+    </button>
+}
 
 
-export default Button;
+export default Button

@@ -1,2 +1,2 @@
 // @ts-ignore
-export default () => null;
+export default () => null

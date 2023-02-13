@@ -7,6 +7,6 @@ const i18nConfig = {
   backend: {
     loadPath: '/locales/{{lng}}/{{ns}}.json',
   },
-};
+}
 
-export default i18nConfig;
+export default i18nConfig

@@ -1,6 +1,6 @@
-import {RCC} from 'shared/types';
-import {useLanguage} from 'shared/lib/hooks';
-import {languageChunks} from 'shared/config';
+import {RCC} from 'shared/types'
+import {useLanguage} from 'shared/lib/hooks'
+import {languageChunks} from 'shared/config'
 
 interface NotFoundProps {
 
@@ -8,11 +8,11 @@ interface NotFoundProps {
 
 
 const NotFound: RCC<NotFoundProps> = () => {
-    const {t} = useLanguage(languageChunks.NOT_FOUND);
+    const {t} = useLanguage(languageChunks.NOT_FOUND)
     return <div>
         <h1>{t('Page not found')}</h1>
-    </div>;
-};
+    </div>
+}
 
 
-export default NotFound;
+export default NotFound

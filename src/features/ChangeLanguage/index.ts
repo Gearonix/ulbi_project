@@ -1,1 +1,1 @@
-export {default as ChangeLanguage} from './ui/ChangeLanguage';
+export {default as ChangeLanguage} from './ui/ChangeLanguage'

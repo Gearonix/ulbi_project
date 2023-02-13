@@ -25,6 +25,13 @@
         "no-unused-vars": "warn",
         "max-len": "off",
         "@typescript-eslint/ban-ts-comment": "warn",
-        "require-jsdoc": "off"
+        "require-jsdoc": "off",
+        "valid-jsdoc": "off",
+        "new-cap": "warn",
+        "semi": [
+            "error",
+            "never"
+        ],
+        "eol-last": "off"
     }
 }

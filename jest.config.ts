@@ -1,4 +1,4 @@
-const path = require('path');
+const path = require('path')
 
 export default {
   clearMocks: true,
@@ -29,4 +29,4 @@ export default {
   },
   setupFilesAfterEnv: ['<rootDir>/config/jest/setupTests.ts'],
 
-};
+}
