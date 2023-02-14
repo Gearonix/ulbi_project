@@ -5,8 +5,8 @@ on:
   pull_request:
     branches: [ master ]
 jobs:
-  build:
-    name: Installing modules and building
+  pipeline:
+    name: Linting, Testing, Building
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -15,45 +15,23 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16.x
-      - name: install modules
+      - name: Installing modules
         uses: borales/actions-yarn@v4
         with:
           cmd: install
-      - name: build production project
+      - name: Building production project
         uses: borales/actions-yarn@v4
         with:
           cmd: build:prod
-      - name: building storybook
-        uses: borales/actions-yarn@v4
-        with:
-          cmd: storybook:build
-  lint:
-    name: Linting
-    needs: [build]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Set Node.js 16.x
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16.x
-      - name: linting
+      - name: Linting
         uses: borales/actions-yarn@v4
         with:
           cmd: lint
-  testing:
-    name: Testing
-    needs: [ build, lint ]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Set Node.js 16.x
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16.x
-      - name: unit testing
+      - name: Unit Testing
         uses: borales/actions-yarn@v4
         with:
           cmd: unit
+      - name: Building Storybook
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: storybook:build
