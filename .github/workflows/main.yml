@@ -1,12 +1,14 @@
-name: linting, testing, building
+name: Linting, testing, building
 on:
   push:
     branches: [ master ]
   pull_request:
     branches: [ master ]
+permissions:
+  contents: write
 jobs:
-  pipeline:
-    name: Linting, Testing, Building
+  build:
+    name: Creating a Production Build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -23,15 +25,51 @@ jobs:
         uses: borales/actions-yarn@v4
         with:
           cmd: build:prod
-      - name: Linting
+      - name: Pushing build
+        uses: s0/git-publish-subdir-action@develop
+        env:
+          REPO: self
+          BRANCH: build # The branch name where you want to push the assets
+          FOLDER: build # The directory where your assets are generated
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # GitHub will automatically add this - you don't need to bother getting a token
+          MESSAGE: "Build: ({sha}) {msg}" # The commit message
+  testing:
+    name: Testing project
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set Node.js 16.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+      - name: Installing modules
         uses: borales/actions-yarn@v4
         with:
-          cmd: lint
+          cmd: install
       - name: Unit Testing
         uses: borales/actions-yarn@v4
         with:
           cmd: unit
-      - name: Building Storybook
+      - name: Building Storybook for screenshot testing
         uses: borales/actions-yarn@v4
         with:
           cmd: storybook:build
+  linting:
+    name: Linting project
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set Node.js 16.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+      - name: Installing modules
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: install
+      - name: Linting
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: lint
