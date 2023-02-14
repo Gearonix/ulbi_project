@@ -2,6 +2,8 @@ name: linting, testing, building
 on:
   push:
     branches: [ build ]
+permissions:
+  contents: write
 jobs:
   pipeline:
     name: Linting, Testing, Building
