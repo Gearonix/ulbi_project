@@ -10,7 +10,7 @@
     "lint": "eslint \"**/*.{ts,tsx}\" --fix && npx stylelint \"**/*.scss\" --fix",
     "unit": "jest",
     "storybook": "start-storybook -p 6006 -c ./config/storybook",
-    "build-storybook": "build-storybook -c ./config/storybook",
+    "storybook:build": "build-storybook -c ./config/storybook",
     "loki": "npx loki test",
     "loki:approve": "npx loki approve"
   },

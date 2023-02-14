@@ -31,3 +31,7 @@ jobs:
         uses: borales/actions-yarn@v4
         with:
           cmd: unit
+      - name: building storybook
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: storybook:build

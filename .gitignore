@@ -38,4 +38,4 @@ yarn.lock
 /extractedTranslations
 extractedTranslations
 yarn.lock*
-
+/storybook-static/
