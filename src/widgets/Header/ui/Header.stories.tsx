@@ -4,9 +4,9 @@ import {ThemeDecorator} from 'shared/config/storybook/decorators'
 import {Theme} from 'shared/config/contexts/ThemeContext'
 
 export default {
-    title: 'widgets/Header',
-    component: Header,
-    argTypes: {},
+  title: 'widgets/Header',
+  component: Header,
+  argTypes: {},
 } as ComponentMeta<typeof Header>
 
 const Template: ComponentStory<typeof Header> = (args) => <Header {...args} />

@@ -9,12 +9,12 @@ const root = createRoot(document.getElementById('root'))
 
 root.render(
     <StrictMode>
-        <BrowserRouter>
-            <ErrorBoundary>
-                <ThemeProvider>
-                    <App/>
-                </ThemeProvider>
-            </ErrorBoundary>
-        </BrowserRouter>
+      <BrowserRouter>
+        <ErrorBoundary>
+          <ThemeProvider>
+            <App/>
+          </ThemeProvider>
+        </ErrorBoundary>
+      </BrowserRouter>
     </StrictMode>,
 )

@@ -5,10 +5,10 @@ import cn from 'classnames'
 
 
 const Button: RCC<ButtonProps> = ({className, children, theme = 'colored', ...buttonProps}) => {
-    // @ts-ignore
-    return <button className={cn(s[theme], className)} {...buttonProps}>
-        {children}
-    </button>
+  // @ts-ignore
+  return <button className={cn(s[theme], className)} {...buttonProps}>
+    {children}
+  </button>
 }
 
 

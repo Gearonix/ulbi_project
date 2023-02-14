@@ -4,11 +4,11 @@ import Button from 'shared/ui/Button/Button'
 
 
 const ThemeSwitcher: FC = () => {
-    const {toggleTheme} = useTheme()
-    return <div>
-        <Button onClick={toggleTheme} style={{height: 40}}
-                theme={'simple'} data-testid={'theme-switcher'}>switch theme</Button>
-    </div>
+  const {toggleTheme} = useTheme()
+  return <div>
+    <Button onClick={toggleTheme} style={{height: 40}}
+      theme={'simple'} data-testid={'theme-switcher'}>switch theme</Button>
+  </div>
 }
 
 

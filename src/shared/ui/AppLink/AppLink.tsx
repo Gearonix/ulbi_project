@@ -20,9 +20,9 @@ interface AppLinkProps extends LinkProps {
 
 
 const AppLink: RCC<AppLinkProps> = ({to, className, children, theme = 'primary'}) => {
-    return <Link to={to} className={cn(className, s[theme])}>
-        {children}
-    </Link>
+  return <Link to={to} className={cn(className, s[theme])}>
+    {children}
+  </Link>
 }
 
 

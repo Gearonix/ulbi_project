@@ -8,10 +8,10 @@ interface NotFoundProps {
 
 
 const NotFound: RCC<NotFoundProps> = () => {
-    const {t} = useLanguage(languageChunks.NOT_FOUND)
-    return <div>
-        <h1>{t('Page not found')}</h1>
-    </div>
+  const {t} = useLanguage(languageChunks.NOT_FOUND)
+  return <div>
+    <h1>{t('Page not found')}</h1>
+  </div>
 }
 
 

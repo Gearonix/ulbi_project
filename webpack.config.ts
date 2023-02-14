@@ -4,21 +4,21 @@ import {BuildEnv} from './config/build/types'
 
 
 export default (env: BuildEnv) => {
-    const mode = env.mode || 'development'
-    const PORT = env.port || 6868
-    const isDev = mode === 'development'
+  const mode = env.mode || 'development'
+  const PORT = env.port || 6868
+  const isDev = mode === 'development'
 
-    const paths = {
-        entry: resolve(__dirname, 'src', 'app', 'index.tsx'),
-        build: resolve(__dirname, 'build'),
-        html: resolve(__dirname, 'public', 'index.html'),
-        src: resolve(__dirname, 'src'),
-    }
+  const paths = {
+    entry: resolve(__dirname, 'src', 'app', 'index.tsx'),
+    build: resolve(__dirname, 'build'),
+    html: resolve(__dirname, 'public', 'index.html'),
+    src: resolve(__dirname, 'src'),
+  }
 
-    return buildWebpackConfig({
-        mode,
-        paths,
-        port: PORT,
-        isDev,
-    })
+  return buildWebpackConfig({
+    mode,
+    paths,
+    port: PORT,
+    isDev,
+  })
 }

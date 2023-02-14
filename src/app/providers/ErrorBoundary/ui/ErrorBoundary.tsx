@@ -11,28 +11,28 @@ interface State {
 
 class ErrorBoundary extends Component<ErrorBoundaryProps, State> {
   public state: State = {
-      hasError: false,
-      errorInfo: null,
+    hasError: false,
+    errorInfo: null,
   }
 
   public static getDerivedStateFromError(error: Error): State {
-      return {hasError: true, errorInfo: error.message}
+    return {hasError: true, errorInfo: error.message}
   }
 
   public componentDidCatch(error: Error, errorInfo: ErrorInfo) {
-      console.error('Uncaught error:', error)
+    console.error('Uncaught error:', error)
   }
 
   render() {
-      const {hasError, errorInfo} = this.state
+    const {hasError, errorInfo} = this.state
     if (hasError) {
       return <div>
-          <h1>Something went wrong.</h1>
-          <p>Error info: {errorInfo}</p>
+        <h1>Something went wrong.</h1>
+        <p>Error info: {errorInfo}</p>
       </div>
     }
 
-      return this.props.children
+    return this.props.children
   }
 }
 

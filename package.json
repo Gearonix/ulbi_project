@@ -11,8 +11,9 @@
     "unit": "jest",
     "storybook": "start-storybook -p 6006 -c ./config/storybook",
     "storybook:build": "build-storybook -c ./config/storybook",
-    "loki": "npx loki test",
-    "loki:approve": "npx loki approve"
+    "loki": "npx loki test && npm run visual_report",
+    "loki:approve": "npx loki approve",
+    "visual_report": "node scripts/generate-visual-json-report.js && reg-cli --from .loki/report.json --report .loki/report.html"
   },
   "keywords": [],
   "author": "Gearonix",
@@ -66,6 +67,7 @@
     "jest-environment-jsdom": "^29.4.2",
     "loki": "^0.31.0",
     "mini-css-extract-plugin": "^2.7.2",
+    "reg-cli": "^0.17.7",
     "sass": "^1.57.1",
     "sass-loader": "^13.2.0",
     "sb": "^6.5.16",

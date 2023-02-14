@@ -11,31 +11,31 @@ enum AppRoutes {
 
 
 export const RoutePaths: Record<AppRoutes, string> = {
-    [AppRoutes.MAIN]: '/',
-    [AppRoutes.ABOUT]: '/about',
-    [AppRoutes.NOT_FOUND]: '*',
+  [AppRoutes.MAIN]: '/',
+  [AppRoutes.ABOUT]: '/about',
+  [AppRoutes.NOT_FOUND]: '*',
 }
 
 
 const reactRouterConfig: Record<AppRoutes, RouteProps> = {
-    [AppRoutes.MAIN]: {
-        path: RoutePaths.MAIN,
-        element: <MainPage/>,
-    },
-    [AppRoutes.ABOUT]: {
-        path: RoutePaths.ABOUT,
-        element: <AboutPage/>,
-    },
-    [AppRoutes.NOT_FOUND]: {
-        path: RoutePaths.NOT_FOUND,
-        element: <NotFoundPage/>,
-    },
+  [AppRoutes.MAIN]: {
+    path: RoutePaths.MAIN,
+    element: <MainPage/>,
+  },
+  [AppRoutes.ABOUT]: {
+    path: RoutePaths.ABOUT,
+    element: <AboutPage/>,
+  },
+  [AppRoutes.NOT_FOUND]: {
+    path: RoutePaths.NOT_FOUND,
+    element: <NotFoundPage/>,
+  },
 }
 
 export const languageChunks: Record<AppRoutes, string> = {
-    [AppRoutes.MAIN]: 'translation',
-    [AppRoutes.ABOUT]: 'about',
-    [AppRoutes.NOT_FOUND]: 'not_found',
+  [AppRoutes.MAIN]: 'translation',
+  [AppRoutes.ABOUT]: 'about',
+  [AppRoutes.NOT_FOUND]: 'not_found',
 } as const
 
 export type LanguageChunks = typeof languageChunks

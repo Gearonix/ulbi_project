@@ -8,16 +8,16 @@ import {ChangeLanguage} from 'features/ChangeLanguage'
 
 
 const App: FC = () => {
-    const {theme} = useTheme()
+  const {theme} = useTheme()
 
-    return <div className={`App ${theme}`}>
-        <Header/>
-        <AppRouter/>
-        <Suspense fallback={''}>
-            <ChangeLanguage/>
-        </Suspense>
+  return <div className={`App ${theme}`}>
+    <Header/>
+    <AppRouter/>
+    <Suspense fallback={''}>
+      <ChangeLanguage/>
+    </Suspense>
 
-    </div>
+  </div>
 }
 
 export default App

@@ -33,5 +33,9 @@
             "never"
         ],
         "eol-last": "off"
+    },
+    "ignorePatterns": ["storybook-static/**"],
+    "globals": {
+        "__IS_DEV__" : true
     }
 }

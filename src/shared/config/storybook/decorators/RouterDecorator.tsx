@@ -3,7 +3,7 @@ import {BrowserRouter} from 'react-router-dom'
 
 
 export const RouterDecorator = (Story: StoryType) => {
-    return <BrowserRouter>
-        <Story/>
-    </BrowserRouter>
+  return <BrowserRouter>
+    <Story/>
+  </BrowserRouter>
 }
