@@ -12,16 +12,24 @@ jobs:
         node-version: [ 17.x ]
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Staring Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
       - name: install modules
-        run: npm install
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: install
       - name: build production project
-        run: npm run build:prod
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: build:prod
       - name: linting
-        run: npm run lint
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: lint
       - name: unit testing
-        run: npm run unit
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: unit
