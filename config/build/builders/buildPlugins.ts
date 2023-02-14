@@ -6,7 +6,7 @@ import {CleanWebpackPlugin} from 'clean-webpack-plugin'
 import {BundleAnalyzerPlugin} from 'webpack-bundle-analyzer'
 
 export const buildPlugins = (options: BuildOptions): webpack.WebpackPluginInstance[] => {
-    return [
+    const plugins = [
         new HTMLWebpackPlugin({template: options.paths.html}),
         new webpack.ProgressPlugin(),
         new MiniCssExtractPlugin({
@@ -20,9 +20,17 @@ export const buildPlugins = (options: BuildOptions): webpack.WebpackPluginInstan
         new webpack.DefinePlugin({
             __isDev__: JSON.stringify(options.isDev),
         }),
+    ]
+    const devPlugins = options.isDev ? [
         new webpack.HotModuleReplacementPlugin(),
         new BundleAnalyzerPlugin({
             openAnalyzer: false,
         }),
+    ] : []
+
+    return [
+        ...plugins,
+        ...devPlugins,
+
     ]
 }

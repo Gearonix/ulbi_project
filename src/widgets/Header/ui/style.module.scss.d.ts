@@ -3,6 +3,5 @@
 interface CssExports {
     'navbar': string;
 }
-
 export const cssExports: CssExports;
 export default cssExports;

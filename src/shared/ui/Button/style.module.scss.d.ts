@@ -5,6 +5,5 @@ interface CssExports {
     'colored': string;
     'simple': string;
 }
-
 export const cssExports: CssExports;
 export default cssExports;

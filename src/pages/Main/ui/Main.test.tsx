@@ -5,8 +5,8 @@ import {renderWithTranslation} from 'shared/lib/tests'
 
 describe('Main tsx:', () => {
   test('is main exists', () => {
-        renderWithTranslation(<Main/>)
-        expect(screen.getByTestId('main-tests-id')).toBeInTheDocument()
+          renderWithTranslation(<Main/>)
+          expect(screen.getByTestId('main-tests-id')).toBeInTheDocument()
       },
   )
   test('theming test', () => {
