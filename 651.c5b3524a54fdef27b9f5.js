@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkulbi_project=self.webpackChunkulbi_project||[]).push([[651],{651:(u,e,t)=>{t.r(e),t.d(e,{default:()=>c});const c=function(){return null}}}]);

@@ -1,0 +1,3 @@
+.App.theme-dark{--bg-main: #171717;--bg-100: #272727;--bg-200: #373737;--color-100: #dadada;--color-200: #c9c9c9}.App.theme-light{--bg-main: #fafafa;--bg-100: #eaeaea;--bg-200: #dadada;--color-100: #373737;--color-200: #484848}.App{background:var(--bg-main);width:100vw;height:100vh}
+.EozzqfVv{width:100%;display:flex;height:80px;gap:100px;align-items:center;background:var(--bg-100)}
+.lPwbqaEz{color:var(--color-100)}.E8eho8D9{color:var(--color-200)}
