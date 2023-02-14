@@ -4,6 +4,6 @@ import Button from './Button'
 describe('Button', () => {
   test('Test render', () => {
     render(<Button className={'testButton'}>TEST</Button>)
-    expect(screen.getByText('TEST')).toHaveClass('testBu234tton')
+    expect(screen.getByText('TEST')).toHaveClass('testButton')
   })
 })
