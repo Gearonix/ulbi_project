@@ -28,9 +28,6 @@ export const buildPlugins = (options: BuildOptions): webpack.WebpackPluginInstan
     }),
   ] : []
 
-  return [
-    ...plugins,
-    ...devPlugins,
 
-  ]
+  return plugins.concat(devPlugins)
 }

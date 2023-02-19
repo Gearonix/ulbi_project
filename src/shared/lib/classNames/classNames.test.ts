@@ -2,6 +2,7 @@ import axios from 'axios'
 import {classNames} from './classNames'
 import {helpers, returnSomeData} from './helpers'
 import {beforeEach} from 'node:test'
+import {configureStore} from '@reduxjs/toolkit'
 
 jest.mock('axios')
 describe('classNames: ', () => {
@@ -30,6 +31,8 @@ describe('classNames: ', () => {
   test('axios mock', async () => {
     const moxios = jest.mocked(axios)
     moxios.get.mockReturnValue(response as any)
+
+
     const res = await returnSomeData()
     expect(res).toBeDefined()
     expect(Array.isArray(res)).toBeTruthy()
