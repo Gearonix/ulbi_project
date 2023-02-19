@@ -3,8 +3,8 @@ import {I18nextProvider} from 'react-i18next'
 import i18nMock from 'shared/config/i18n/i18nForTests'
 import {render} from '@testing-library/react'
 import {Provider} from 'react-redux'
-import {configureStore, createStore, DeepPartial} from '@reduxjs/toolkit'
-import {StateSchema} from 'app/providers/StoreProvider'
+import {configureStore, DeepPartial} from '@reduxjs/toolkit'
+import {StateSchema} from './../../../app/providers/StoreProvider'
 import {counterReducer} from 'entities/Counter'
 
 
