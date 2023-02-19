@@ -8,13 +8,18 @@ import {StateSchema} from 'app/providers/StoreProvider'
 import {counterReducer} from 'entities/Counter'
 
 
-const componentRender = (component: ReactElement, initialStore: DeepPartial<StateSchema>) => {
-  const mockStore = configureStore<StateSchema>({
+const componentRender = (component: ReactElement, initialStore?: DeepPartial<StateSchema>) => {
+  const storeTemplate: any = {
     reducer: {
       counter: counterReducer,
     },
-    preloadedState: initialStore as StateSchema,
-  })
+  }
+
+  if (initialStore) {
+    storeTemplate.preloadedState = initialStore as StateSchema
+  }
+
+  const mockStore = configureStore<StateSchema>(storeTemplate)
 
 
   return render(
