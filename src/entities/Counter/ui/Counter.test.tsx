@@ -3,62 +3,60 @@ import {Counter} from 'entities/Counter'
 import {fireEvent, screen} from '@testing-library/react'
 import {userEvent} from '@storybook/testing-library'
 import axios from 'axios'
-import {configureStore} from '@reduxjs/toolkit'
+import {configureStore, Dispatch} from '@reduxjs/toolkit'
 import {doSomething} from './Counter'
-import {counterReducer, counterSlice} from 'entities/Counter/model/slice/counterSlice'
+import {counterActions, counterReducer, counterSlice} from 'entities/Counter/model/slice/counterSlice'
+import {createReduxStore, StateSchema} from 'app/providers/StoreProvider'
+import {TestAsyncThunk} from 'shared/lib/tests/TestAsyncThunk'
 
 
 jest.mock('axios')
 
-const intialStore = {
+const initialStore = {
   counter: {
     value: 12,
   },
 }
 
+const moxios = jest.mocked(axios)
+
 describe('Component Counter', () => {
-  let mockStore = {...intialStore}
+  let mockStore = {...initialStore}
+  let dispatch: Dispatch
+  let getState: () => StateSchema
+  let thunkRes: any
   beforeEach(() => {
-    mockStore = {...intialStore}
+    dispatch = jest.fn()
+    getState = jest.fn()
+    mockStore = {...initialStore}
+    thunkRes = {data: {title: 'thunk now is working'}}
   })
   test('render test', () => {
-    componentRender(<Counter/>, mockStore)
+    componentRender(<Counter/>, mockStore, {counter: counterReducer})
 
     expect(screen.getByTestId('value-title')).toHaveTextContent('12')
   })
   test('increment button', () => {
-    componentRender(<Counter/>, mockStore)
+    componentRender(<Counter/>, mockStore, {counter: counterReducer})
 
     userEvent.click(screen.getByTestId('increment-btn'))
     expect(screen.getByTestId('value-title')).toHaveTextContent('13')
   })
 
-  test('testing thunk', async () => {
-    componentRender(<Counter/>, mockStore)
+  test('testing thunk 2.0', async () => {
+    moxios.get.mockReturnValue(thunkRes)
+    const action = doSomething()
+    const result = await action(dispatch, getState, undefined)
+    console.log(result)
 
-    const moxios = jest.mocked(axios)
-    const response = {
-      data: {
-        title: 'thunk now is working',
-      },
+    expect(dispatch).toHaveBeenCalledWith(counterActions.increment())
+  })
 
-    }
-    moxios.get.mockReturnValue(response as any)
+  test('testing thunk 3.0', async () => {
+    moxios.get.mockReturnValue(thunkRes)
 
-    const store = configureStore({
-      reducer: {
-        counter: counterReducer,
-      },
-    })
-
-    const res = await store.dispatch(doSomething())
-    expect(res.payload.title).toBe('thunk now is working')
-
-    const value = store.getState().counter.value
-
-    expect(value).toBe(1)
-
-    // userEvent.click(screen.getByTestId('thunk-btn'))
-    // expect(screen.getByTestId('thunk-value')).toHaveTextContent('thunk now is working')
+    const thunk = new TestAsyncThunk(doSomething)
+    const result = await thunk.call()
+    expect(thunk.dispatch).toBeCalledWith(counterActions.setTitle(thunkRes.data.title))
   })
 })

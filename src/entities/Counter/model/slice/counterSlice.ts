@@ -1,8 +1,9 @@
-import {createSlice} from '@reduxjs/toolkit'
+import {createSlice, PayloadAction} from '@reduxjs/toolkit'
 import {CounterSchema} from 'entities/Counter'
 
 const initialState: CounterSchema = {
   value: 0,
+  title: 'initial_title',
 }
 
 export const counterSlice = createSlice({
@@ -14,6 +15,9 @@ export const counterSlice = createSlice({
     },
     decrement: (state) => {
       state.value -= 1
+    },
+    setTitle: (state, {payload}: PayloadAction<string>) => {
+      state.title = payload
     },
   },
 })

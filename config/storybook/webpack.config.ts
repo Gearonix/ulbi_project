@@ -1,4 +1,4 @@
-import {Configuration, RuleSetRule} from 'webpack'
+import {Configuration, RuleSetRule, DefinePlugin} from 'webpack'
 import {scssLoader, svgLoader} from '../build/loaders'
 import {resolve} from 'path'
 
@@ -16,6 +16,9 @@ export default ({config}: { config: Configuration }) => {
     return rule
   })
   config.module.rules.push(svgLoader())
+  config.plugins.push(new DefinePlugin({
+    __IS_DEV__: true,
+  }))
 
   return config
 }

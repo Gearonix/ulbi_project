@@ -1,17 +1,20 @@
 import Button from 'shared/ui/Button/Button'
-import {useDispatch, useSelector} from 'react-redux'
+import {useDispatch, useSelector, useStore} from 'react-redux'
 import {useTranslation} from 'react-i18next'
-import {counterActions} from '../model/slice/counterSlice'
+import {counterActions, counterReducer} from '../model/slice/counterSlice'
 import {getCounterValue} from '../model/selectors/getCounterValue/getCounterValue'
 import {createAsyncThunk} from '@reduxjs/toolkit'
 import axios from 'axios'
-import {useState} from 'react'
+import {useEffect, useState} from 'react'
+import {ReduxStoreWithManager} from 'app/providers/StoreProvider/config/StateSchema'
+import {useAsyncReducer} from 'shared/lib/hooks/useAsyncReducer'
 
 export const doSomething = createAsyncThunk('counter/HELLO_WORLD',
     async (_, {dispatch}) => {
       const res = await axios.get('https://dummyjson.com/products/1')
       const data = res.data
       dispatch(counterActions.increment())
+      dispatch(counterActions.setTitle(res.data.title))
 
       return data
     })
@@ -22,6 +25,8 @@ export const Counter = () => {
   const counterValue = useSelector(getCounterValue)
   const [value, setValue] = useState<string>('')
   const {t} = useTranslation()
+
+  useAsyncReducer('counter', counterReducer)
 
   const increment = () => {
     dispatch(counterActions.increment())
