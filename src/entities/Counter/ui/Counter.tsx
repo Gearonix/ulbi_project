@@ -1,30 +1,20 @@
 import Button from 'shared/ui/Button/Button'
-import {useDispatch, useSelector, useStore} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 import {useTranslation} from 'react-i18next'
 import {counterActions, counterReducer} from '../model/slice/counterSlice'
 import {getCounterValue} from '../model/selectors/getCounterValue/getCounterValue'
-import {createAsyncThunk} from '@reduxjs/toolkit'
-import axios from 'axios'
-import {useEffect, useState} from 'react'
-import {ReduxStoreWithManager} from 'app/providers/StoreProvider/config/StateSchema'
+import {memo, useState} from 'react'
+import {StateSchema} from 'app/providers/StoreProvider/config/StateSchema'
 import {useAsyncReducer} from 'shared/lib/hooks/useAsyncReducer'
-
-export const doSomething = createAsyncThunk('counter/HELLO_WORLD',
-    async (_, {dispatch}) => {
-      const res = await axios.get('https://dummyjson.com/products/1')
-      const data = res.data
-      dispatch(counterActions.increment())
-      dispatch(counterActions.setTitle(res.data.title))
-
-      return data
-    })
+import {doSomething} from 'entities/Counter/model/services/doSomething'
+import {useNavigate} from 'react-router-dom'
 
 
 export const Counter = () => {
   const dispatch = useDispatch()
   const counterValue = useSelector(getCounterValue)
-  const [value, setValue] = useState<string>('')
   const {t} = useTranslation()
+  const navigate = useNavigate()
 
   useAsyncReducer('counter', counterReducer)
 
@@ -38,14 +28,12 @@ export const Counter = () => {
 
   const asyncReq = async () => {
     // @ts-ignore
-    const data = await dispatch(doSomething())
-    setValue(data.payload.title)
+    dispatch(doSomething())
   }
-
   return (
     <div>
       <h1 data-testid="value-title">{counterValue}</h1>
-      <h2 data-testid='thunk-value'>thunk value: {value}</h2>
+      <h2 data-testid='thunk-value'>thunk value: value</h2>
       <button onClick={asyncReq} data-testid='thunk-btn'>thunk</button>
       <Button
         onClick={increment}
@@ -59,6 +47,13 @@ export const Counter = () => {
       >
         {t('decrement')}
       </Button>
+      <MemoComponent/>
     </div>
   )
 }
+
+const MemoComponent = memo(() => {
+  // const title = useSelector((state: StateSchema) => state.counter)
+  // return <h2>memo component: {title}</h2>
+  return null
+})

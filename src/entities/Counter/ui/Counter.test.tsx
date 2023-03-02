@@ -4,17 +4,18 @@ import {fireEvent, screen} from '@testing-library/react'
 import {userEvent} from '@storybook/testing-library'
 import axios from 'axios'
 import {configureStore, Dispatch} from '@reduxjs/toolkit'
-import {doSomething} from './Counter'
 import {counterActions, counterReducer, counterSlice} from 'entities/Counter/model/slice/counterSlice'
 import {createReduxStore, StateSchema} from 'app/providers/StoreProvider'
 import {TestAsyncThunk} from 'shared/lib/tests/TestAsyncThunk'
+import {doSomething} from 'entities/Counter/model/services/doSomething'
 
 
 jest.mock('axios')
 
-const initialStore = {
+const initialStore: StateSchema = {
   counter: {
     value: 12,
+    title: 'hello',
   },
 }
 

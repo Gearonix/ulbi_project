@@ -1,14 +1,12 @@
 import {counterActions, counterReducer} from 'entities/Counter/model/slice/counterSlice'
-
-interface CounterSchema{
-    value: number
-}
+import {CounterSchema} from '../types/counterSchema'
 
 
 describe('counterSlice', () => {
   test('should return counter value', () => {
     const state : CounterSchema = {
       value: 10,
+      title: 'sdf',
     }
 
     expect(counterReducer(state, counterActions.increment())).toEqual({

@@ -6,7 +6,7 @@ import {StateSchema, StoreProvider} from 'app/providers/StoreProvider'
 import {ReducersMapObject} from '@reduxjs/toolkit'
 
 
-const componentRender = (component: ReactElement, preloadedState?: StateSchema,
+const componentRender = (component: ReactElement, preloadedState?: Partial<StateSchema>,
     asyncReducers: ReducersMapObject<StateSchema> = {}) => {
   return render(
       <StoreProvider initialState={preloadedState} asyncReducers={asyncReducers}>

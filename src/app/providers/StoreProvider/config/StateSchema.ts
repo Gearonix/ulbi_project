@@ -3,7 +3,8 @@ import {ReducerManager} from 'app/providers/StoreProvider/config/reducerManager'
 
 export interface StateSchema {
     counter?: {
-        value: number
+        value: number,
+        title: string
     }
 }
 
